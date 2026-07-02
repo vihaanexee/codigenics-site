@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codigenics — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Lora:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-sans: 'Inter', sans-serif;
+      --font-voice: 'Lora', serif;
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a56;
+      --text-muted: #9a9a94;
+      --text-accent: #185fa5;
+      --surface-0: #f5f4f0;
+      --surface-1: #efefea;
+      --surface-2: #ffffff;
+      --border: rgba(0,0,0,0.1);
+      --border-strong: rgba(0,0,0,0.18);
+      --border-accent: #378add;
+      --fill-accent: #185fa5;
+      --fill-accent-hover: #0c447c;
+      --on-accent: #ffffff;
+      --bg-accent: #e6f1fb;
+      --fill-success: #1d9e75;
+      --radius: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #f0efeb;
+        --text-secondary: #a8a8a0;
+        --text-muted: #6a6a64;
+        --text-accent: #85b7eb;
+        --surface-0: #181816;
+        --surface-1: #222220;
+        --surface-2: #2c2c2a;
+        --border: rgba(255,255,255,0.08);
+        --border-strong: rgba(255,255,255,0.14);
+        --border-accent: #378add;
+        --fill-accent: #378add;
+        --fill-accent-hover: #185fa5;
+        --on-accent: #ffffff;
+        --bg-accent: #042c53;
+        --fill-success: #1d9e75;
+      }
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--surface-0);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      gap: 3.5rem;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 560px;
+    }
+
+    .tagline {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1.5px;
+      background: var(--border-accent);
+      margin: 0 auto 2rem;
+      border-radius: 2px;
+    }
+
+    .headline {
+      font-size: 38px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.18;
+      margin-bottom: 1rem;
+      font-family: var(--font-voice);
+    }
+
+    .sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 1.75rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--fill-success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .status-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hiring {
+      max-width: 640px;
+      width: 100%;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .role-card {
+      background: var(--surface-2);
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .role-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-accent);
+    }
+
+    .role-icon {
+      font-size: 20px;
+      color: var(--text-accent);
+      margin-bottom: 10px;
+    }
+
+    .role-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .role-type {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .cta-row {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      border: 0.5px solid var(--border-strong);
+      background: transparent;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.12s;
+      text-decoration: none;
+      font-family: var(--font-sans);
+    }
+
+    .cta-btn:hover {
+      background: var(--surface-1);
+    }
+
+    .cta-btn.primary {
+      background: var(--fill-accent);
+      color: var(--on-accent);
+      border-color: transparent;
+    }
+
+    .cta-btn.primary:hover {
+      background: var(--fill-accent-hover);
+    }
+
+    .footer {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .headline { font-size: 28px; }
+      .roles { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="logo">Codigenics</div>
+
+    <div class="hero">
+      <p class="tagline">Under maintenance</p>
+      <div class="divider"></div>
+      <h1 class="headline">Something great<br>is on its way.</h1>
+      <p class="sub">We're rebuilding our home on the internet. In the meantime, we're fully operational and open to new clients and collaborators.</p>
+      <div class="status-row">
+        <span class="dot"></span>
+        <span class="status-text">Back shortly — probably sooner than you'd expect</span>
+      </div>
+    </div>
+
+    <div class="hiring">
+      <p class="section-label">We're hiring</p>
+      <div class="roles">
+        <div class="role-card">
+          <div class="role-icon"><i class="ti ti-code" aria-hidden="true"></i></div>
+          <div class="role-title">Full-stack developer</div>
+          <div class="role-type">Freelance · Remote</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><i class="ti ti-layout" aria-hidden="true"></i></div>
+          <div class="role-title">UI/UX designer</div>
+          <div class="role-type">Freelance · Remote</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+          <div class="role-title">Mobile developer</div>
+          <div class="role-type">Freelance · Remote</div>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+          <div class="role-title">Digital marketer</div>
+          <div class="role-type">Freelance · Remote</div>
+        </div>
+      </div>
+      <div class="cta-row">
+        <a class="cta-btn primary" href="mailto:vsvihaan.exe@gmail.com">
+          <i class="ti ti-mail" aria-hidden="true"></i> Apply now
+        </a>
+        <a class="cta-btn" href="mailto:vsvihaan.exe@gmail.com">
+          <i class="ti ti-briefcase" aria-hidden="true"></i> Hire us
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Codigenics · UDYAM-MH-33-0635716 · Kalyan, Maharashtra</div>
+
+  </div>
+</body>
+</html>
